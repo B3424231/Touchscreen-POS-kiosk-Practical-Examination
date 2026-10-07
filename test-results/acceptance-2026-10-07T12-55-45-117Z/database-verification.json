@@ -1,0 +1,511 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Coffee",
+      "price_cents": 4500
+    },
+    {
+      "id": 2,
+      "name": "Sandwich",
+      "price_cents": 5000
+    },
+    {
+      "id": 3,
+      "name": "Soft Drink",
+      "price_cents": 3500
+    },
+    {
+      "id": 4,
+      "name": "Cookies",
+      "price_cents": 2500
+    },
+    {
+      "id": 5,
+      "name": "Bottled Water",
+      "price_cents": 2000
+    },
+    {
+      "id": 6,
+      "name": "Chocolate",
+      "price_cents": 2500
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "transaction_number": "TXN-20261007-F56AD570-8F83-4954-8396-DA06198F2B40",
+      "request_id": "47f8cfd9-7d32-4e57-93cf-23a24ce5c0df",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":9000,\"amountPaidCents\":9000}",
+      "total_cents": 9000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 9000,
+      "change_cents": 0,
+      "status": "completed",
+      "created_at": "2026-10-07T12:55:48.339Z"
+    },
+    {
+      "id": 2,
+      "transaction_number": "TXN-20261007-2489D1B5-E0AC-442B-A6F0-952F096C4CEA",
+      "request_id": "1d342b48-1dba-4c42-abe1-5bf26c8d3fb1",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:55:58.356Z"
+    },
+    {
+      "id": 3,
+      "transaction_number": "TXN-20261007-2CB7DCBE-EE90-42F1-8DED-5D123AF2270F",
+      "request_id": "ef2a50cb-5a2f-4c05-b15a-405acf5d2df5",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:55:59.971Z"
+    },
+    {
+      "id": 4,
+      "transaction_number": "TXN-20261007-AE268FE2-A59C-4550-AA0C-33ABB751AAB1",
+      "request_id": "57c73958-83f2-4dd3-95ff-66b51df41d81",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":14000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 14000,
+      "change_cents": 0,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:00.539Z"
+    },
+    {
+      "id": 5,
+      "transaction_number": "TXN-20261007-AC1EE88D-41D0-4D00-8F04-5DC4507FD1FD",
+      "request_id": "0c1f401b-8aff-4286-b6a8-ad112cbdc7f2",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"QR Payment\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+      "total_cents": 14000,
+      "payment_method": "QR Payment",
+      "amount_paid_cents": 14000,
+      "change_cents": 0,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:01.437Z"
+    },
+    {
+      "id": 6,
+      "transaction_number": "TXN-20261007-94430535-2FFC-4872-BDCD-144E22499972",
+      "request_id": "b2fc1ef1-c35a-41f5-bcde-4cd52a07d2e2",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Credit/Debit Card\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+      "total_cents": 14000,
+      "payment_method": "Credit/Debit Card",
+      "amount_paid_cents": 14000,
+      "change_cents": 0,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:03.180Z"
+    },
+    {
+      "id": 7,
+      "transaction_number": "TXN-20261007-470D5446-DC3C-463F-9EE3-B9D1410C1CBF",
+      "request_id": "ac014e86-5b27-407f-9e07-0a142cc9826b",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:04.521Z"
+    },
+    {
+      "id": 8,
+      "transaction_number": "TXN-20261007-F9B990E2-5D49-46CC-8619-7987DA8B54A3",
+      "request_id": "33677b72-749b-4f55-a2da-1431c50daf60",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:05.287Z"
+    },
+    {
+      "id": 9,
+      "transaction_number": "TXN-20261007-3B32B542-E5B2-406D-8915-30781664923A",
+      "request_id": "779d1507-c76f-482f-9bfb-f8b00773463d",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:05.752Z"
+    },
+    {
+      "id": 10,
+      "transaction_number": "TXN-20261007-C6AF62B9-D510-4137-B9CC-A50CEDFA11F2",
+      "request_id": "303ec345-79f4-4d3c-a4e3-c3103a8af577",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:06.585Z"
+    },
+    {
+      "id": 11,
+      "transaction_number": "TXN-20261007-D3DE9311-91DE-45A5-88A5-23246360DBD1",
+      "request_id": "99a7a655-9c1f-40ee-8fa9-1b047bf85921",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:07.419Z"
+    },
+    {
+      "id": 12,
+      "transaction_number": "TXN-20261007-2BD4289B-8682-46E2-9B2A-CE9BF02BF9D2",
+      "request_id": "5c8fefbe-9eb9-4d54-aec5-bd8f0f3aa95a",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:08.285Z"
+    },
+    {
+      "id": 13,
+      "transaction_number": "TXN-20261007-02D4AB58-0DD5-42A5-B2CB-620A9B40537D",
+      "request_id": "778f1815-9e1d-488a-943c-ff7be4ac61e9",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"QR Payment\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+      "total_cents": 14000,
+      "payment_method": "QR Payment",
+      "amount_paid_cents": 14000,
+      "change_cents": 0,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:08.835Z"
+    },
+    {
+      "id": 14,
+      "transaction_number": "TXN-20261007-C66518CF-5617-4A09-9BB5-0B13D2BD7CC0",
+      "request_id": "ee789da2-0d0f-4635-8052-9f939d9a2270",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Credit/Debit Card\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+      "total_cents": 14000,
+      "payment_method": "Credit/Debit Card",
+      "amount_paid_cents": 14000,
+      "change_cents": 0,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:10.294Z"
+    },
+    {
+      "id": 15,
+      "transaction_number": "TXN-20261007-645DF7D5-9B71-4F62-AB8A-5F6EA4F49EA3",
+      "request_id": "67d0ef40-a63a-48b6-a967-9ade7c6d39dd",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:11.599Z"
+    },
+    {
+      "id": 16,
+      "transaction_number": "TXN-20261007-F64BBFDB-4E39-4C48-9FEC-CA76063C5FA3",
+      "request_id": "cbe48e0a-5f2e-4bc6-8cb4-f3701ff78fb5",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Credit/Debit Card\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+      "total_cents": 14000,
+      "payment_method": "Credit/Debit Card",
+      "amount_paid_cents": 14000,
+      "change_cents": 0,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:13.946Z"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "transaction_id": 1,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 2,
+      "transaction_id": 2,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 3,
+      "transaction_id": 2,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 4,
+      "transaction_id": 3,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 5,
+      "transaction_id": 3,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 6,
+      "transaction_id": 4,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 7,
+      "transaction_id": 4,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 8,
+      "transaction_id": 5,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 9,
+      "transaction_id": 5,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 10,
+      "transaction_id": 6,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 11,
+      "transaction_id": 6,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 12,
+      "transaction_id": 7,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 13,
+      "transaction_id": 7,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 14,
+      "transaction_id": 8,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 15,
+      "transaction_id": 8,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 16,
+      "transaction_id": 9,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 17,
+      "transaction_id": 9,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 18,
+      "transaction_id": 10,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 19,
+      "transaction_id": 10,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 20,
+      "transaction_id": 11,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 21,
+      "transaction_id": 11,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 22,
+      "transaction_id": 12,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 23,
+      "transaction_id": 12,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 24,
+      "transaction_id": 13,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 25,
+      "transaction_id": 13,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 26,
+      "transaction_id": 14,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 27,
+      "transaction_id": 14,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 28,
+      "transaction_id": 15,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 29,
+      "transaction_id": 15,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    },
+    {
+      "id": 30,
+      "transaction_id": 16,
+      "product_id": 1,
+      "product_name": "Coffee",
+      "unit_price_cents": 4500,
+      "quantity": 2,
+      "subtotal_cents": 9000
+    },
+    {
+      "id": 31,
+      "transaction_id": 16,
+      "product_id": 2,
+      "product_name": "Sandwich",
+      "unit_price_cents": 5000,
+      "quantity": 1,
+      "subtotal_cents": 5000
+    }
+  ],
+  "integrity": "ok",
+  "foreignKeyViolations": 0
+}

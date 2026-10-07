@@ -1,0 +1,63 @@
+{
+  "run": "2026-10-07T12-35-43-595Z",
+  "browser": "154.0.4258.62",
+  "base": "http://127.0.0.1:2566",
+  "databasePath": "D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\2026-10-07T12-35-43-595Z\\browser.db",
+  "evidenceDir": "D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\2026-10-07T12-35-43-595Z",
+  "instructor": [
+    {
+      "number": 1,
+      "name": "Startup and six touch products",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 2,
+      "name": "Coffee x2, Sandwich x1, Soft Drink x1 = PHP175",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 3,
+      "name": "Quantity increases to PHP220 and decreases to PHP175",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 4,
+      "name": "Remove Soft Drink = PHP140",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 5,
+      "name": "Order summary matches cart",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 6,
+      "name": "Back preserves items, quantities and total",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 7,
+      "name": "Three large payment options",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 8,
+      "name": "Insufficient cash rejected without database write",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 9,
+      "name": "Successful cash PHP200 and exact PHP140",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 10,
+      "name": "Confirmation shows matching committed payment details",
+      "status": "VERIFIED"
+    }
+  ],
+  "regression": [],
+  "consoleErrors": [],
+  "status": "FAILED",
+  "error": "Error: UNKNOWN: unknown error, open 'D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\latest.json'\n    at writeFileSync (node:fs:2426:20)\n    at save (D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\tests\\browser.cjs:25:5)\n    at check (D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\tests\\browser.cjs:47:5)\n    at async D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\tests\\browser.cjs:119:5"
+}

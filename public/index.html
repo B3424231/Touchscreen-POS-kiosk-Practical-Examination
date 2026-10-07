@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#174e40">
+  <meta name="theme-color" content="#f6f3ea">
   <title>Campus Store · Touchscreen POS</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
@@ -11,14 +11,31 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="brand"><span class="brand-mark" aria-hidden="true">C<span>+</span></span><div><strong>Campus Store</strong><span>Your everyday essentials</span></div></div>
-    <div class="kiosk-label"><span class="status-dot" aria-hidden="true"></span>SELF-SERVICE KIOSK</div>
+    <div class="brand"><span class="brand-mark" aria-hidden="true">c<span>✳</span></span><div><strong>Campus Store<span class="brand-period">.</span></strong><span>A little break. A better day.</span></div></div>
+    <div class="header-note">Your between-class happy place.</div>
+    <div class="kiosk-label"><span class="status-dot" aria-hidden="true"></span>Self-service kiosk</div>
   </header>
   <nav id="progress" class="progress" aria-label="Transaction progress"></nav>
   <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
   <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
   <main id="app" aria-busy="true"><div class="loading-panel"><span class="spinner" aria-hidden="true"></span><h1>Opening the store…</h1><p>Loading today's essentials.</p></div></main>
-  <footer class="site-footer"><span>Made for your campus day.</span><span>IT415 · Payment simulation</span></footer>
+  <dialog id="add-confirmation" class="confirmation-dialog" aria-labelledby="confirmation-title" aria-describedby="confirmation-description">
+    <form method="dialog" id="confirmation-form">
+      <p class="eyebrow">A little pick-me-up</p>
+      <h2 id="confirmation-title">Add to your order?</h2>
+      <p id="confirmation-description">Confirm this item before adding it to your order.</p>
+      <div class="confirmation-product">
+        <span id="confirmation-art" class="confirmation-art"><svg aria-hidden="true"><use id="confirmation-image" href="/images/products.svg#bag"></use></svg></span>
+        <div><strong id="confirmation-name"></strong><span id="confirmation-price"></span></div>
+      </div>
+      <p id="confirmation-existing" class="confirmation-existing"></p>
+      <div class="confirmation-actions">
+        <button type="submit" class="secondary" value="cancel" autofocus>Cancel</button>
+        <button type="submit" class="primary" value="confirm">Add to Order <span aria-hidden="true">+</span></button>
+      </div>
+    </form>
+  </dialog>
+  <footer class="site-footer"><span><span class="footer-spark" aria-hidden="true">✳</span> A little pick-me-up, right on campus.</span><span>IT415 · Payment simulation</span></footer>
   <noscript>This kiosk needs JavaScript enabled to select products and make simulated payments.</noscript>
 </body>
 </html>

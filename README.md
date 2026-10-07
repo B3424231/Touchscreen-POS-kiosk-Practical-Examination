@@ -37,6 +37,10 @@ Browser tests require Playwright as a **test-only** tool and an installed Micros
 npm run test:browser
 ```
 
+Selecting a product opens a confirmation with **Cancel** and **Add to Order**. Existing cart quantity buttons adjust quantities directly. After updating the source, refresh the browser to load the latest interface.
+
+Additional browser checks use `npm run test:confirmation` for the confirmation dialog and rendering stability, and `npm run test:performance -- current` for comparative scrolling and cart update diagnostics.
+
 In Codex's bundled runtime, set `NODE_PATH` to the Node.js packages path returned by `load_workspace_dependencies` before running the browser script. On another computer, a local `npm install --no-save playwright` provides this optional test tool. It is not needed to run the app. Use `POS_BROWSER_CHANNEL=chrome` to test Chrome instead of Edge. Browser tests create a separate `test-results/<timestamp>/browser.db`, record the 15 instructor results, and save screenshots.
 
 ## Files
@@ -47,7 +51,7 @@ In Codex's bundled runtime, set `NODE_PATH` to the Node.js packages path returne
 - `server/database.js`: schema, seeds, validation, atomic sale storage.
 - `database/pos.db`: practice history; amounts are integer centavos.
 - `tests/`: money, API, SQLite, and real browser verification.
-- `UI_SPEC.md`: UI requirements derived from the supplied master prompt.
+- `UI_SPEC.md`: redesigned interface and preserved functionality requirements.
 - `REPORT.md`: actual development, test, and verification evidence.
 
 Payment values are validated on both the client and server. Product names and prices come from SQLite. The success screen and receipt use the committed sale snapshot. A unique request ID prevents duplicate sales from double submissions or retrying a lost response.

@@ -79,7 +79,10 @@ const rows = () => db.prepare('SELECT * FROM transactions ORDER BY id').all();
 const count = () => db.prepare('SELECT COUNT(*) AS count FROM transactions').get().count;
 const itemCount = () => db.prepare('SELECT COUNT(*) AS count FROM transaction_items').get().count;
 const click = (page, name) => page.getByRole('button', { name, exact: true }).click();
-const product = (page, name, tap = false) => page.getByRole('button', { name: new RegExp(`^Add ${name} to order,`) })[tap ? 'tap' : 'click']();
+const product = async (page, name, tap = false) => {
+  await page.getByRole('button', { name: new RegExp(`^Add ${name} to order,`) })[tap ? 'tap' : 'click']();
+  await page.getByRole('button', { name: 'Add to Order', exact: true })[tap ? 'tap' : 'click']();
+};
 const heading = (page, name) => page.getByRole('heading', { name, exact: true }).waitFor();
 const shot = (page, file) => page.screenshot({ path: resolve(evidenceDir, file), fullPage: true });
 async function visibleText(page, selector, expectedText) {
@@ -117,7 +120,7 @@ async function tableRows(page) { return page.locator('tbody tr').evaluateAll(trs
 const summaryRows = [['Coffee','2','₱45.00','₱90.00'],['Sandwich','1','₱50.00','₱50.00']];
 
 async function measure(page) {
-  return page.locator('button').evaluateAll(buttons => buttons.filter(button => !button.disabled).map(button => {
+  return page.locator('button').evaluateAll(buttons => buttons.filter(button => !button.disabled && button.getClientRects().length).map(button => {
     const b = button.getBoundingClientRect();
     return { name: button.getAttribute('aria-label') || button.textContent.trim(), width: b.width, height: b.height };
   }));
@@ -196,7 +199,7 @@ async function check(number, fn) {
       for(const [name] of catalog) {
         const card=page.getByRole('button',{name:new RegExp(`^Add ${name} to order,`)});
         assert.ok(await card.isVisible()); assert.ok(await card.isEnabled());
-        await card.click(); assert.equal(await page.getByRole('button',{name:`Remove ${name}`,exact:true}).count(),1);
+        await product(page, name); assert.equal(await page.getByRole('button',{name:`Remove ${name}`,exact:true}).count(),1);
       }
       assert.equal(await page.locator('.cart-item').count(),6); await visibleText(page,'.order-total','₱200.00');
       return { actual:'All six products were visible, enabled, individually clicked, and added to the cart; one each totals ₱200.00.', observations:{names:catalog.map(c=>c[0])} };

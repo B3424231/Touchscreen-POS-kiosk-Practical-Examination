@@ -1,0 +1,7 @@
+{
+  "evidenceDir": "D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\confirmation-2026-10-07T12-23-33-483Z",
+  "checks": [],
+  "errors": [],
+  "status": "FAIL",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n\n    at D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\tests\\confirmation.cjs:35:14"
+}

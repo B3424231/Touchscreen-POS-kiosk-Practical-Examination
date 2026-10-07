@@ -1,0 +1,344 @@
+{
+  "run": "2026-10-07T12-05-05-325Z",
+  "browser": "154.0.4258.62",
+  "base": "http://127.0.0.1:36100",
+  "databasePath": "D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\2026-10-07T12-05-05-325Z\\browser.db",
+  "evidenceDir": "D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\2026-10-07T12-05-05-325Z",
+  "instructor": [
+    {
+      "number": 1,
+      "name": "Startup and six touch products",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 2,
+      "name": "Coffee x2, Sandwich x1, Soft Drink x1 = PHP175",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 3,
+      "name": "Quantity increases to PHP220 and decreases to PHP175",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 4,
+      "name": "Remove Soft Drink = PHP140",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 5,
+      "name": "Order summary matches cart",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 6,
+      "name": "Back preserves items, quantities and total",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 7,
+      "name": "Three large payment options",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 8,
+      "name": "Insufficient cash rejected without database write",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 9,
+      "name": "Successful cash PHP200 and exact PHP140",
+      "status": "VERIFIED",
+      "exactPayment": "VERIFIED: PHP140 paid, PHP0 change"
+    },
+    {
+      "number": 10,
+      "name": "Confirmation shows matching committed payment details",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 11,
+      "name": "Receipt matches items, totals, method and reference",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 12,
+      "name": "QR simulation has placeholder, confirmation and zero change",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 13,
+      "name": "Card processing simulation saves exact payment",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 14,
+      "name": "New transaction clears active data and preserves completed history",
+      "status": "VERIFIED"
+    },
+    {
+      "number": 15,
+      "name": "Separate completed transactions have unique references",
+      "status": "VERIFIED"
+    }
+  ],
+  "regression": [
+    {
+      "number": "R1",
+      "name": "Blank, text, negative and extra-decimal cash validation",
+      "status": "VERIFIED"
+    },
+    {
+      "number": "R2",
+      "name": "Responsive layout, large visible controls and focus",
+      "status": "VERIFIED"
+    },
+    {
+      "number": "R3",
+      "name": "SQLite values, snapshots, keys and integrity",
+      "status": "VERIFIED"
+    },
+    {
+      "number": "R4",
+      "name": "Actual server restart retains sales and six seeds",
+      "status": "VERIFIED"
+    },
+    {
+      "number": "R5",
+      "name": "Unavailable catalog shows recoverable inline error",
+      "status": "VERIFIED"
+    },
+    {
+      "number": "R6",
+      "name": "Lost payment response retry does not duplicate the sale",
+      "status": "VERIFIED"
+    },
+    {
+      "number": "R7",
+      "name": "Mobile summary, payment, cash, QR, card, success and receipt layouts",
+      "status": "VERIFIED"
+    }
+  ],
+  "consoleErrors": [],
+  "database": {
+    "products": [
+      {
+        "id": 1,
+        "name": "Coffee",
+        "price_cents": 4500,
+        "is_active": 1,
+        "created_at": "2026-10-07T12:05:05.337Z"
+      },
+      {
+        "id": 2,
+        "name": "Sandwich",
+        "price_cents": 5000,
+        "is_active": 1,
+        "created_at": "2026-10-07T12:05:05.337Z"
+      },
+      {
+        "id": 3,
+        "name": "Soft Drink",
+        "price_cents": 3500,
+        "is_active": 1,
+        "created_at": "2026-10-07T12:05:05.337Z"
+      },
+      {
+        "id": 4,
+        "name": "Cookies",
+        "price_cents": 2500,
+        "is_active": 1,
+        "created_at": "2026-10-07T12:05:05.337Z"
+      },
+      {
+        "id": 5,
+        "name": "Bottled Water",
+        "price_cents": 2000,
+        "is_active": 1,
+        "created_at": "2026-10-07T12:05:05.337Z"
+      },
+      {
+        "id": 6,
+        "name": "Chocolate",
+        "price_cents": 2500,
+        "is_active": 1,
+        "created_at": "2026-10-07T12:05:05.337Z"
+      }
+    ],
+    "transactions": [
+      {
+        "id": 1,
+        "transaction_number": "TXN-20261007-95A6064D-679D-4A98-81A4-2E07A1B61EB9",
+        "request_id": "dab7d822-b238-4a69-8aa9-e34776d15553",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:05:11.864Z"
+      },
+      {
+        "id": 2,
+        "transaction_number": "TXN-20261007-3285E17B-F8E7-4DF8-9DB1-1E4299E69ECB",
+        "request_id": "e7a58f83-a5ed-498d-87b6-3eb5563e7b05",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":1},{\"productId\":5,\"quantity\":1}],\"paymentMethod\":\"QR Payment\",\"expectedTotalCents\":6500,\"amountPaidCents\":null}",
+        "total_cents": 6500,
+        "payment_method": "QR Payment",
+        "amount_paid_cents": 6500,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:05:12.816Z"
+      },
+      {
+        "id": 3,
+        "transaction_number": "TXN-20261007-AF460411-F730-4CED-AE96-DD95CD3FE003",
+        "request_id": "42e5df39-56c6-49c6-8346-e7d55ab24521",
+        "request_fingerprint": "{\"items\":[{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Credit/Debit Card\",\"expectedTotalCents\":5000,\"amountPaidCents\":null}",
+        "total_cents": 5000,
+        "payment_method": "Credit/Debit Card",
+        "amount_paid_cents": 5000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:05:14.387Z"
+      },
+      {
+        "id": 4,
+        "transaction_number": "TXN-20261007-0E008BC0-2D21-4FBD-9116-1BF70AF34124",
+        "request_id": "93c3c638-37eb-4a48-8f68-f48cf70799ec",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":14000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 14000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:05:16.045Z"
+      },
+      {
+        "id": 5,
+        "transaction_number": "TXN-20261007-AF0D8FCC-AB0B-4696-B084-EC269C0508AB",
+        "request_id": "9370b3cb-bc38-441f-ba09-78871f12067e",
+        "request_fingerprint": "{\"items\":[{\"productId\":4,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":2500,\"amountPaidCents\":5000}",
+        "total_cents": 2500,
+        "payment_method": "Cash",
+        "amount_paid_cents": 5000,
+        "change_cents": 2500,
+        "status": "completed",
+        "created_at": "2026-10-07T12:05:17.919Z"
+      },
+      {
+        "id": 6,
+        "transaction_number": "TXN-20261007-0A8D0D71-49A6-4035-A920-4E5862176303",
+        "request_id": "3351b40c-09c2-4494-a6ab-1d7a90614bf1",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Credit/Debit Card\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+        "total_cents": 14000,
+        "payment_method": "Credit/Debit Card",
+        "amount_paid_cents": 14000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:05:20.799Z"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "transaction_id": 1,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 2,
+        "transaction_id": 1,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 3,
+        "transaction_id": 2,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 1,
+        "subtotal_cents": 4500
+      },
+      {
+        "id": 4,
+        "transaction_id": 2,
+        "product_id": 5,
+        "product_name": "Bottled Water",
+        "unit_price_cents": 2000,
+        "quantity": 1,
+        "subtotal_cents": 2000
+      },
+      {
+        "id": 5,
+        "transaction_id": 3,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 6,
+        "transaction_id": 4,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 7,
+        "transaction_id": 4,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 8,
+        "transaction_id": 5,
+        "product_id": 4,
+        "product_name": "Cookies",
+        "unit_price_cents": 2500,
+        "quantity": 1,
+        "subtotal_cents": 2500
+      },
+      {
+        "id": 9,
+        "transaction_id": 6,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 10,
+        "transaction_id": 6,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      }
+    ],
+    "integrity": "ok",
+    "foreignKeyViolations": 0
+  },
+  "expectedNetworkErrors": [
+    "Failed to load resource: net::ERR_FAILED",
+    "Failed to load resource: net::ERR_FAILED"
+  ],
+  "finalTransactionCount": 6,
+  "finalItemCount": 10,
+  "status": "VERIFIED"
+}

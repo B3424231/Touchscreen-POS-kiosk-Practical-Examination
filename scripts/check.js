@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-const files = ['server/database.js', 'server/server.js', 'api/index.js', 'api/products.js', 'api/transactions.js', 'api/health.js', 'public/js/cart.js', 'public/js/app.js', 'tests/api.test.js', 'tests/cart.test.js', 'tests/toast.test.js', 'tests/browser.cjs'];
+const files = ['server/database.js', 'server/server.js', 'api/index.js', 'api/products.js', 'api/transactions.js', 'api/health.js', 'public/js/cart.js', 'public/js/app.js', 'tests/api.test.js', 'tests/cart.test.js', 'tests/toast.test.js', 'tests/browser.cjs', 'tests/design.cjs', 'tests/performance.cjs', 'tests/confirmation.cjs'];
 for (const file of files) {
   const result = spawnSync(process.execPath, ['--check', file], { encoding: 'utf8' });
   if (result.status !== 0) { process.stderr.write(result.stderr); process.exit(1); }
