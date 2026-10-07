@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174e40">
+  <title>Campus Store · Touchscreen POS</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">C<span>+</span></span><div><strong>Campus Store</strong><span>Your everyday essentials</span></div></div>
+    <div class="kiosk-label"><span class="status-dot" aria-hidden="true"></span>SELF-SERVICE KIOSK</div>
+  </header>
+  <nav id="progress" class="progress" aria-label="Transaction progress"></nav>
+  <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+  <main id="app" aria-busy="true"><div class="loading-panel"><span class="spinner" aria-hidden="true"></span><h1>Opening the store…</h1><p>Loading today's essentials.</p></div></main>
+  <footer class="site-footer"><span>Made for your campus day.</span><span>IT415 · Payment simulation</span></footer>
+  <noscript>This kiosk needs JavaScript enabled to select products and make simulated payments.</noscript>
+</body>
+</html>
