@@ -1,0 +1,15 @@
+{
+  "evidenceDir": "D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\confirmation-2026-10-07T12-26-18-787Z",
+  "checks": [
+    "Product and price are shown before adding; Cancel leaves the order unchanged; focus is trapped and restored",
+    "Escape cancels and restores scrolling",
+    "Confirm adds once even with repeated submit events",
+    "Repeated catalog selections confirm the extra item; existing quantity controls remain immediate",
+    "Quantity changes preserve catalog, row, and keyboard focus; removal restores the empty state",
+    "Quantity 999 cannot be exceeded by a catalog selection",
+    "320px dialog fits, locks background scrolling, keeps touch targets, and restores scroll after adding",
+    "Touch selection and confirmation add the correct item"
+  ],
+  "errors": [],
+  "status": "PASS"
+}

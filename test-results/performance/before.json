@@ -1,0 +1,62 @@
+{
+  "label": "before",
+  "measuredAt": "2026-10-07T12:16:13.478Z",
+  "cpuSlowdown": 4,
+  "cartUpdates": [
+    {
+      "updates": 120,
+      "elapsedMs": 3949.5,
+      "removedNodes": 360,
+      "catalogPreserved": false
+    },
+    {
+      "updates": 120,
+      "elapsedMs": 8596.5,
+      "removedNodes": 360,
+      "catalogPreserved": false
+    },
+    {
+      "updates": 120,
+      "elapsedMs": 7820.199999928474,
+      "removedNodes": 360,
+      "catalogPreserved": false
+    }
+  ],
+  "scrolling": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "frames": 76,
+      "medianFrameMs": 33.29999999999927,
+      "p95FrameMs": 33.400000000001455,
+      "framesOver25ms": 76,
+      "longTasks": [],
+      "LayoutCount": 2,
+      "RecalcStyleCount": 9,
+      "LayoutDuration": 0.0014599999999997948,
+      "RecalcStyleDuration": 0.019273000000000096,
+      "ScriptDuration": 0.02084999999999937,
+      "TaskDuration": 0.3617929999999987
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "frames": 88,
+      "medianFrameMs": 33.30000000000291,
+      "p95FrameMs": 66.79999999999563,
+      "framesOver25ms": 87,
+      "longTasks": [],
+      "LayoutCount": 25,
+      "RecalcStyleCount": 94,
+      "LayoutDuration": 0.047371999999999304,
+      "RecalcStyleDuration": 0.17873499999999964,
+      "ScriptDuration": 0.01576099999999947,
+      "TaskDuration": 1.2975790000000025
+    }
+  ],
+  "browser": "154.0.4258.62"
+}

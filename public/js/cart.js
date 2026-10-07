@@ -1,12 +1,13 @@
 export const MAX_QUANTITY = 999;
 export const MAX_AMOUNT = 100_000_000;
+const currencyFormatter = new Intl.NumberFormat('en-PH', { style: 'currency', currency: 'PHP' });
 
 export function totalCents(items) {
   return items.reduce((total, item) => total + item.priceCents * item.quantity, 0);
 }
 
 export function money(cents) {
-  return new Intl.NumberFormat('en-PH', { style: 'currency', currency: 'PHP' }).format(cents / 100);
+  return currencyFormatter.format(cents / 100);
 }
 
 export function parseAmount(text) {

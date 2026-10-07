@@ -1,4 +1,91 @@
-# Kiosk Verification & Success Toast Implementation Report
+# Campus Store Redesign and Verification Report
+
+## October 7, 2026 — five-row Review Order table
+
+The Review Order table now displays up to five distinct product rows at once. A sixth product makes only the table scrollable; the column headings stay visible while scrolling, and the order total and navigation buttons remain fixed outside the scrolling region. A scrollbar and “Scroll to see more items” hint appear only when needed. Keyboard focus, touch panning, and overscroll containment match the order-panel behavior.
+
+Focused browser checks cover the five-row non-scrolling state, the six-row scrolling state, visibility of exactly five rows before scrolling, sticky headings, fixed total placement, and independent mouse-wheel scrolling. Confirmation and rendering checks passed 11/11, design edge checks passed 8/8, and the full browser suite passed 15/15 instructor checks plus 7/7 regressions. Evidence: `test-results/confirmation-2026-10-07T12-43-34-087Z/`, `test-results/design-2026-10-07T12-43-30-544Z/`, and `test-results/2026-10-07T12-43-49-251Z/`.
+
+---
+
+## October 7, 2026 — three-row order list
+
+The current order panel now displays a maximum of three distinct product rows at once. Adding a fourth product keeps the order total, Review Order action, and panel footer fixed while only the item list scrolls. The list has a visible scrollbar and “Scroll to see more items” hint, accepts keyboard focus, supports touch panning, and contains overscroll so scrolling within the cart does not unexpectedly move the page.
+
+Focused browser checks verified that three items do not create a scroll region, a fourth item does, the fourth starts below the three-row viewport, and mouse-wheel scrolling moves the list without moving the page. The same three-row cutoff and access to the fourth item were verified at a 390 × 844 touch viewport. Confirmation and rendering suite: 10/10 PASS. The complete ordering/payment suite also passed 15/15 instructor checks and 7/7 regressions. Evidence: `test-results/confirmation-2026-10-07T12-35-47-334Z/` and `test-results/2026-10-07T12-36-13-549Z/`.
+
+---
+
+## October 7, 2026 — scrolling performance and add confirmation
+
+Removed full-page rendering from quantity changes and item removal. The catalog, product illustrations, existing cart rows, and keyboard focus now remain in place; only the affected row/badge and totals change. Currency formatting reuses a single formatter. Repeated notifications no longer force a synchronous layout or restart a pulse animation. Product hover transforms, animated shadows, and SVG drop-shadow filters were removed; the desktop sticky order panel uses an isolated compositor layer.
+
+Selecting a product opens an accessible confirmation with its name, one-unit price, and existing quantity. **Add to Order** adds exactly one item; **Cancel** and Escape make no change. The dialog locks background scrolling, confines keyboard focus, and restores focus and scroll position on close. Repeated submits cannot add twice. Quantity controls remain immediate, and the 999-unit limit is preserved.
+
+### Performance observations
+
+Compared the same local Edge workload before and after, with 4× CPU slowdown:
+
+| Diagnostic | Before | After |
+|---|---:|---:|
+| Median time for a batch of 120 quantity updates, three runs | 7,820 ms | 46 ms |
+| Catalog DOM preserved during quantity updates | No | Yes |
+| Layout recalculations during the phone scroll sample | 25 | 0 |
+| Style recalculations during the phone scroll sample | 94 | 24 |
+| Phone scroll 95th-percentile sampled frame interval | 66.8 ms | 33.6 ms |
+
+These are comparative headless-browser diagnostics. The batch measures handler work (including forced layout), not individual tap-to-display latency. Median sampled frame intervals remained about 33 ms in both runs; optimized phone sampling also recorded six long tasks of 51–67 ms. The results establish substantially less rendering work, but do not establish a fixed physical-device FPS. Raw data is retained in `test-results/performance/before.json` and `after.json`.
+
+### Verification of this update
+
+- Build and static asset verification: PASS.
+- Calculation, API, database, and toast suite: 16/16 PASS.
+- Existing browser ordering/payment scenarios: 15/15 PASS; regressions: 7/7 PASS.
+- Confirmation, cancellation, repeated submit, keyboard, touch, focus/scroll stability, rendering stability, and quantity limit scenarios: 8/8 PASS.
+- Narrow layout, long toast, maximum quantity, and large payment scenarios: 8/8 PASS.
+- Browser/payment evidence: `test-results/2026-10-07T12-23-27-553Z/`.
+- Confirmation evidence: `test-results/confirmation-2026-10-07T12-26-18-787Z/`.
+- Large-order evidence: `test-results/design-2026-10-07T12-24-30-849Z/`.
+
+Desktop and 320px phone dialog screenshots were inspected. A keyboard focus escape discovered during testing was corrected and the confirmation suite rerun successfully. No unexpected application console or runtime errors were recorded in the passing functional runs. Payments and transaction persistence remain unchanged. Refresh the app to load the updated scripts and styles.
+
+---
+
+## October 7, 2026 — campus café redesign
+
+Redesigned the complete kiosk interface with a cream canvas, yellow illustrated welcome banner, serif headings, forest green controls, pastel product cards, illustrated order rows, and a distinct order panel. Order review, payment selection, cash/QR/card screens, success confirmation, receipts, loading, and error states share the new style. Updated the favicon to match the identity.
+
+The existing catalog API, prices, cart calculations, quantity limits, payment validation, simulated payment methods, transaction storage, duplicate protection, and receipt data remain intact. No runtime dependency or external asset was added.
+
+### Corrections and refinements
+
+- Long toast messages now wrap inside the viewport; the previous no-wrap styling could clip long messages on phones.
+- Status announcements retain their live region without consuming page layout space. Visible toasts and inline payment errors remain available.
+- Product colors now match between catalog cards, cart thumbnails, and order review thumbnails.
+- Adjusted the decorative illustration on tablet and narrow phone layouts and improved small product description text.
+
+### Observed verification results
+
+| Check | Result |
+|---|---|
+| `npm run build` — source syntax and local asset references | PASS |
+| `npm test` — calculation, API, database, and toast checks | 16 / 16 PASS |
+| `tests/browser.cjs` — instructor ordering/payment scenarios | 15 / 15 PASS |
+| `tests/browser.cjs` — responsive, persistence, validation, recovery, and retry regressions | 7 / 7 PASS |
+| `tests/design.cjs` — narrow viewport and large order edge cases | 8 / 8 PASS |
+| `git diff --check` | PASS |
+
+Browser checks used Microsoft Edge and isolated test databases. They covered widths of 1366, 1024, 768, 390, and 360 pixels; additional edge checks used 320 pixels. Verified all six products at quantity 999, a cash payment of PHP1,000,000, large totals and receipt columns, and long toast escaping/wrapping/dismissal. Existing browser checks verified 48px minimum enabled button targets, keyboard focus, empty orders, insufficient and invalid cash, all three payment methods, receipt consistency, clean new transactions, database persistence, recoverable catalog failure, and a lost-response retry without a duplicate sale.
+
+No unexpected browser console or runtime errors were recorded. Expected network errors occurred only during deliberate connection-failure tests. Local API requests and Edge launch were blocked by the execution sandbox initially; authorized runs outside the sandbox completed successfully.
+
+Final browser evidence: `test-results/2026-10-07T12-05-05-325Z/results.json` and its screenshots. Edge-case evidence: `test-results/design-2026-10-07T12-02-37-509Z/results.json`. Desktop, tablet, phone, payment, summary, and receipt screenshots were visually inspected. These results cover the tested local environment, not a production hosting deployment.
+
+The current visual and functional contract is recorded in `UI_SPEC.md`. The earlier implementation report below is retained as historical evidence.
+
+---
+
+# Previous Kiosk Verification & Success Toast Implementation Report
 
 ## Executive Summary
 A modern, accessible, top-right success toast notification system was implemented for the Campus Store touchscreen POS kiosk. All 26 kiosk functional, UI, payment, receipt, and feedback requirements were comprehensively verified through automated browser acceptance testing (`tests/acceptance.cjs`), instructor test flows (`tests/browser.cjs`), and the unit test suite (`tests/*.test.js`). All 26 requirements passed with 100% success.
