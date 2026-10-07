@@ -5,7 +5,7 @@ const progress = document.querySelector('#progress');
 const feedback = document.querySelector('#feedback');
 const state = { products: [], cart: [], screen: 'selection', method: null, paid: '', error: '', processing: false, transaction: null, requestId: null, uncertain: false };
 const illustrations = { 1: 'coffee', 2: 'sandwich', 3: 'soft-drink', 4: 'cookies', 5: 'water', 6: 'chocolate' };
-const productNotes = { 1: 'Your daily pick-me-up', 2: 'A little lunch break', 3: 'Bring on the bubbles', 4: 'A bite of happiness', 5: 'Refresh & recharge', 6: 'Make the day sweeter' };
+const productNotes = { 1: 'Your daily pick-me-up', 2: 'A little lunch break', 3: 'Bring on the bubbles', 4: 'A bite of happiness', 5: 'Distilled Water', 6: 'Make the day sweeter' };
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
 const icon = (name, className = '') => `<svg class="${className}" aria-hidden="true"><use href="/images/products.svg#${name}"></use></svg>`;
 const total = () => totalCents(state.cart);
