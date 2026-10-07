@@ -2,6 +2,7 @@ import { createServer as createHttpServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { tmpdir } from 'node:os';
 import { openDatabase, getProducts, completeSale, ValidationError } from './database.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -22,6 +23,9 @@ function sendJson(res, status, data) {
 
 async function readJson(req) {
   if (!req.headers['content-type']?.startsWith('application/json')) throw new ValidationError('Use JSON to submit a payment.', 415);
+  if (req.body) {
+    return typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+  }
   let body = '';
   for await (const chunk of req) {
     body += chunk;
@@ -30,20 +34,22 @@ async function readJson(req) {
   try { return JSON.parse(body); } catch { throw new ValidationError('Invalid JSON payment request.'); }
 }
 
-export function createApp({ databasePath = resolve(root, 'database/pos.db') } = {}) {
+export function createApp({ databasePath = (process.env.VERCEL ? resolve(tmpdir(), 'pos.db') : resolve(root, 'database/pos.db')) } = {}) {
   const db = openDatabase(databasePath);
-  const server = createHttpServer(async (req, res) => {
+  const handler = async (req, res) => {
     res.setHeader('Cache-Control', 'no-store');
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Referrer-Policy', 'no-referrer');
     res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'");
     try {
-      const url = new URL(req.url, 'http://localhost');
+      const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
       if (req.method === 'GET' && url.pathname === '/api/health') return sendJson(res, 200, { status: 'ok' });
       if (req.method === 'GET' && url.pathname === '/api/products') return sendJson(res, 200, { products: getProducts(db) });
       if (req.method === 'POST' && url.pathname === '/api/transactions') {
         const origin = req.headers.origin;
-        if (origin && origin !== `http://${req.headers.host}`) throw new ValidationError('Payment requests must come from this kiosk.', 403);
+        if (origin && origin !== `http://${req.headers.host}` && origin !== `https://${req.headers.host}`) {
+          throw new ValidationError('Payment requests must come from this kiosk.', 403);
+        }
         const result = completeSale(db, await readJson(req));
         return sendJson(res, result.created ? 201 : 200, { transaction: result.sale });
       }
@@ -60,9 +66,10 @@ export function createApp({ databasePath = resolve(root, 'database/pos.db') } = 
       if (status === 500) console.error('Request failed:', error.code || error.name);
       sendJson(res, status, { error: status === 500 ? 'Unable to save your payment. Please try again.' : error.message });
     }
-  });
+  };
+  const server = createHttpServer(handler);
   server.on('close', () => db.close());
-  return { server, db };
+  return { server, db, handler };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
