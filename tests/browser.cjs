@@ -33,7 +33,10 @@ const { once } = require('node:events');
     assert.ok((await page.locator(selector).innerText()).includes(expected), `${selector} should contain ${expected}`);
   };
   const shot = filename => page.screenshot({ path: resolve(evidenceDir, filename), fullPage: true });
-  const product = async name => { await page.getByRole('button', { name: new RegExp(`^Add ${name} to order,`) }).click(); };
+  const product = async name => {
+    await page.getByRole('button', { name: new RegExp(`^Add ${name} to order,`) }).click();
+    await button('Add to Order');
+  };
   const reference = async () => page.locator('.reference').innerText();
   const references = [];
   async function check(number, name, fn, regression = false) {
@@ -178,7 +181,7 @@ const { once } = require('node:events');
         await page.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
         assert.equal(overflow, false, `overflow at ${viewport.width}`);
-        const sizes = await page.locator('button').evaluateAll(buttons => buttons.filter(b => !b.disabled).map(b => ({ label:b.getAttribute('aria-label') || b.textContent.trim(), height:b.getBoundingClientRect().height, width:b.getBoundingClientRect().width })));
+        const sizes = await page.locator('button').evaluateAll(buttons => buttons.filter(b => !b.disabled && b.getClientRects().length).map(b => ({ label:b.getAttribute('aria-label') || b.textContent.trim(), height:b.getBoundingClientRect().height, width:b.getBoundingClientRect().width })));
         for (const size of sizes) assert.ok(size.height >= 48 && size.width >= 48, JSON.stringify(size));
         await shot(`responsive-${viewport.width}.png`);
       }
@@ -238,7 +241,7 @@ const { once } = require('node:events');
       const verifyScreen = async filename => {
         await page.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, filename);
-        const sizes = await page.locator('button:not(:disabled)').evaluateAll(buttons => buttons.map(b => ({ height: b.getBoundingClientRect().height, width: b.getBoundingClientRect().width, text: b.textContent })));
+        const sizes = await page.locator('button:not(:disabled)').evaluateAll(buttons => buttons.filter(b => b.getClientRects().length).map(b => ({ height: b.getBoundingClientRect().height, width: b.getBoundingClientRect().width, text: b.textContent })));
         for (const size of sizes) assert.ok(size.height >= 48 && size.width >= 48, JSON.stringify(size));
         await shot(filename);
       };

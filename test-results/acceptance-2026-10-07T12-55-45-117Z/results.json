@@ -1,0 +1,1405 @@
+{
+  "startedAt": "2026-10-07T12:55:45.118Z",
+  "evidenceDir": "D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\acceptance-2026-10-07T12-55-45-117Z",
+  "databasePath": "D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\acceptance-2026-10-07T12-55-45-117Z\\acceptance.db",
+  "requirements": [
+    {
+      "number": 1,
+      "requirement": "Application successfully runs",
+      "expected": "Application starts normally",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:45.755Z",
+      "actual": "CLI server started; HTTP 200; nonblank kiosk; health ok; six SQLite products; required assets loaded; no fatal JS errors.",
+      "observations": {
+        "health": {
+          "status": "ok"
+        },
+        "resources": [
+          {
+            "name": "http://localhost:55322/css/style.css",
+            "size": 35890
+          },
+          {
+            "name": "http://localhost:55322/js/app.js",
+            "size": 29269
+          },
+          {
+            "name": "http://localhost:55322/images/products.svg#bag",
+            "size": 5669
+          },
+          {
+            "name": "http://localhost:55322/js/cart.js",
+            "size": 1147
+          },
+          {
+            "name": "http://localhost:55322/api/products",
+            "size": 589
+          },
+          {
+            "name": "http://localhost:55322/images/products.svg#coffee",
+            "size": 5669
+          },
+          {
+            "name": "http://localhost:55322/favicon.svg",
+            "size": 633
+          }
+        ]
+      },
+      "screenshot": "test-01.png",
+      "finishedAt": "2026-10-07T12:55:47.275Z"
+    },
+    {
+      "number": 2,
+      "requirement": "Touchscreen-oriented UI is used",
+      "expected": "Touch-friendly interface",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:47.290Z",
+      "actual": "Completed Coffee ×2, review, cash quick amount and receipt using touch events with no typing or keyboard shortcuts.",
+      "observations": {
+        "targets": [
+          {
+            "name": "New Transaction →",
+            "width": 680,
+            "height": 54
+          }
+        ],
+        "inputFieldsOnReceipt": 0
+      },
+      "screenshot": "test-02.png",
+      "finishedAt": "2026-10-07T12:55:48.699Z"
+    },
+    {
+      "number": 3,
+      "requirement": "Large item buttons/cards are provided",
+      "expected": "Large tappable product controls",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:48.712Z",
+      "actual": "Six separated product cards; visible names/prices; each product target exceeds 48 × 48 px.",
+      "observations": {
+        "cards": [
+          {
+            "name": "Coffee",
+            "price": "₱45.00",
+            "width": 294.65625,
+            "height": 262,
+            "nameSize": "16px",
+            "priceSize": "17px",
+            "left": 35.5,
+            "right": 330.15625,
+            "top": 509.796875,
+            "bottom": 771.796875
+          },
+          {
+            "name": "Sandwich",
+            "price": "₱50.00",
+            "width": 294.671875,
+            "height": 262,
+            "nameSize": "16px",
+            "priceSize": "17px",
+            "left": 347.15625,
+            "right": 641.828125,
+            "top": 509.796875,
+            "bottom": 771.796875
+          },
+          {
+            "name": "Soft Drink",
+            "price": "₱35.00",
+            "width": 294.65625,
+            "height": 262,
+            "nameSize": "16px",
+            "priceSize": "17px",
+            "left": 658.828125,
+            "right": 953.484375,
+            "top": 509.796875,
+            "bottom": 771.796875
+          },
+          {
+            "name": "Cookies",
+            "price": "₱25.00",
+            "width": 294.65625,
+            "height": 262,
+            "nameSize": "16px",
+            "priceSize": "17px",
+            "left": 35.5,
+            "right": 330.15625,
+            "top": 788.796875,
+            "bottom": 1050.796875
+          },
+          {
+            "name": "Bottled Water",
+            "price": "₱20.00",
+            "width": 294.671875,
+            "height": 262,
+            "nameSize": "16px",
+            "priceSize": "17px",
+            "left": 347.15625,
+            "right": 641.828125,
+            "top": 788.796875,
+            "bottom": 1050.796875
+          },
+          {
+            "name": "Chocolate",
+            "price": "₱25.00",
+            "width": 294.65625,
+            "height": 262,
+            "nameSize": "16px",
+            "priceSize": "17px",
+            "left": 658.828125,
+            "right": 953.484375,
+            "top": 788.796875,
+            "bottom": 1050.796875
+          }
+        ],
+        "targets": [
+          {
+            "name": "Add Coffee to order, ₱45.00",
+            "width": 294.65625,
+            "height": 262
+          },
+          {
+            "name": "Add Sandwich to order, ₱50.00",
+            "width": 294.671875,
+            "height": 262
+          },
+          {
+            "name": "Add Soft Drink to order, ₱35.00",
+            "width": 294.65625,
+            "height": 262
+          },
+          {
+            "name": "Add Cookies to order, ₱25.00",
+            "width": 294.65625,
+            "height": 262
+          },
+          {
+            "name": "Add Bottled Water to order, ₱20.00",
+            "width": 294.671875,
+            "height": 262
+          },
+          {
+            "name": "Add Chocolate to order, ₱25.00",
+            "width": 294.65625,
+            "height": 262
+          }
+        ]
+      },
+      "screenshot": "test-03.png",
+      "finishedAt": "2026-10-07T12:55:49.184Z"
+    },
+    {
+      "number": 4,
+      "requirement": "At least six products are available",
+      "expected": "6+ products visible",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:49.195Z",
+      "actual": "All six products were visible, enabled, individually clicked, and added to the cart; one each totals ₱200.00.",
+      "observations": {
+        "names": [
+          "Coffee",
+          "Sandwich",
+          "Soft Drink",
+          "Cookies",
+          "Bottled Water",
+          "Chocolate"
+        ]
+      },
+      "screenshot": "test-04.png",
+      "finishedAt": "2026-10-07T12:55:50.414Z"
+    },
+    {
+      "number": 5,
+      "requirement": "Product prices are displayed",
+      "expected": "Every product shows price",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:50.422Z",
+      "actual": "Every product displayed its required name and correct price before selection.",
+      "observations": {
+        "rendered": [
+          [
+            "Coffee",
+            "₱45.00"
+          ],
+          [
+            "Sandwich",
+            "₱50.00"
+          ],
+          [
+            "Soft Drink",
+            "₱35.00"
+          ],
+          [
+            "Cookies",
+            "₱25.00"
+          ],
+          [
+            "Bottled Water",
+            "₱20.00"
+          ],
+          [
+            "Chocolate",
+            "₱25.00"
+          ]
+        ]
+      },
+      "screenshot": "test-05.png",
+      "finishedAt": "2026-10-07T12:55:50.751Z"
+    },
+    {
+      "number": 6,
+      "requirement": "Products can be selected by clicking/tapping",
+      "expected": "Product enters cart",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:50.759Z",
+      "actual": "Each of six clicked products immediately produced its correct cart row, price, quantity 1 and added feedback.",
+      "observations": {
+        "feedback": [
+          "Coffee added.",
+          "Sandwich added.",
+          "Soft Drink added.",
+          "Cookies added.",
+          "Bottled Water added.",
+          "Chocolate added."
+        ]
+      },
+      "screenshot": "test-06.png",
+      "finishedAt": "2026-10-07T12:55:51.629Z"
+    },
+    {
+      "number": 7,
+      "requirement": "Quantity can be increased",
+      "expected": "Quantity and totals update",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:51.637Z",
+      "actual": "Coffee increased from 2 to 3; subtotal ₱135.00 and order total ₱220.00.",
+      "screenshot": "test-07.png",
+      "finishedAt": "2026-10-07T12:55:52.393Z"
+    },
+    {
+      "number": 8,
+      "requirement": "Quantity can be decreased",
+      "expected": "Quantity and totals update",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:52.400Z",
+      "actual": "Coffee decreased 3→2; subtotal ₱90.00 and total ₱175.00. Decreasing quantity 1 removed Water; no negative quantity remained.",
+      "screenshot": "test-08.png",
+      "finishedAt": "2026-10-07T12:55:53.277Z"
+    },
+    {
+      "number": 9,
+      "requirement": "An item can be removed",
+      "expected": "Product removed and total updates",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:53.286Z",
+      "actual": "Soft Drink removed entirely; Coffee ×2 and Sandwich ×1 retained; total ₱140.00.",
+      "screenshot": "test-09.png",
+      "finishedAt": "2026-10-07T12:55:53.977Z"
+    },
+    {
+      "number": 10,
+      "requirement": "Item subtotal is correct",
+      "expected": "Price × quantity is correct",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:53.985Z",
+      "actual": "Coffee 2×₱45=₱90; Sandwich 1×₱50=₱50; Soft Drink 1×₱35=₱35.",
+      "observations": {
+        "values": [
+          {
+            "name": "Coffee",
+            "quantity": 2,
+            "unitPrice": 4500,
+            "subtotal": 9000
+          },
+          {
+            "name": "Sandwich",
+            "quantity": 1,
+            "unitPrice": 5000,
+            "subtotal": 5000
+          },
+          {
+            "name": "Soft Drink",
+            "quantity": 1,
+            "unitPrice": 3500,
+            "subtotal": 3500
+          }
+        ]
+      },
+      "screenshot": "test-10.png",
+      "finishedAt": "2026-10-07T12:55:54.612Z"
+    },
+    {
+      "number": 11,
+      "requirement": "Total is calculated correctly",
+      "expected": "Sum of subtotals is correct",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:54.621Z",
+      "actual": "Live total correctly changed ₱45 → ₱175 → ₱220 → ₱175 → ₱140 after add, increase, decrease and removal.",
+      "observations": {
+        "observedCents": [
+          4500,
+          17500,
+          22000,
+          17500,
+          14000
+        ]
+      },
+      "screenshot": "test-11.png",
+      "finishedAt": "2026-10-07T12:55:55.410Z"
+    },
+    {
+      "number": 12,
+      "requirement": "Order Summary is provided",
+      "expected": "Correct order summary displayed",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:55.419Z",
+      "actual": "Summary showed Coffee ×2 at ₱45/₱90 and Sandwich ×1 at ₱50/₱50; total ₱140.00.",
+      "observations": {
+        "rows": [
+          [
+            "Coffee",
+            "2",
+            "₱45.00",
+            "₱90.00"
+          ],
+          [
+            "Sandwich",
+            "1",
+            "₱50.00",
+            "₱50.00"
+          ]
+        ]
+      },
+      "screenshot": "test-12.png",
+      "finishedAt": "2026-10-07T12:55:56.026Z"
+    },
+    {
+      "number": 13,
+      "requirement": "User can go back and modify the order",
+      "expected": "Cart preserved and editable",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:56.035Z",
+      "actual": "Back preserved Coffee ×2/Sandwich ×1. Increasing Coffee updated the next summary to ₱185; decreasing restored ₱140.",
+      "observations": {
+        "modifiedTotalCents": 18500,
+        "restoredTotalCents": 14000
+      },
+      "screenshot": "test-13.png",
+      "finishedAt": "2026-10-07T12:55:56.860Z"
+    },
+    {
+      "number": 14,
+      "requirement": "At least three payment methods are available",
+      "expected": "Cash, QR, Card available",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:56.869Z",
+      "actual": "All three payment options were visible, touch sized and clicked to their correct payment screen.",
+      "observations": {
+        "targets": [
+          {
+            "name": "←Back to order",
+            "width": 111.4375,
+            "height": 48
+          },
+          {
+            "name": "Cash",
+            "width": 271.328125,
+            "height": 255
+          },
+          {
+            "name": "QR Payment",
+            "width": 271.328125,
+            "height": 255
+          },
+          {
+            "name": "Credit/Debit Card",
+            "width": 271.34375,
+            "height": 255
+          }
+        ]
+      },
+      "screenshot": "test-14.png",
+      "finishedAt": "2026-10-07T12:55:57.740Z"
+    },
+    {
+      "number": 15,
+      "requirement": "Cash payment works",
+      "expected": "Valid Cash transaction succeeds",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:57.748Z",
+      "actual": "₱140 cash sale paid with ₱200 succeeded, stored Cash method, and gave ₱60 change.",
+      "observations": {
+        "sale": {
+          "id": 2,
+          "transaction_number": "TXN-20261007-2489D1B5-E0AC-442B-A6F0-952F096C4CEA",
+          "request_id": "1d342b48-1dba-4c42-abe1-5bf26c8d3fb1",
+          "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+          "total_cents": 14000,
+          "payment_method": "Cash",
+          "amount_paid_cents": 20000,
+          "change_cents": 6000,
+          "status": "completed",
+          "created_at": "2026-10-07T12:55:58.356Z"
+        }
+      },
+      "screenshot": "test-15.png",
+      "finishedAt": "2026-10-07T12:55:58.458Z"
+    },
+    {
+      "number": 16,
+      "requirement": "Insufficient Cash payment is rejected",
+      "expected": "Invalid payment cannot proceed",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:58.467Z",
+      "actual": "₱100, blank, negative and nonnumeric inputs were rejected inline; remained on Cash; no receipt, sale or item writes.",
+      "observations": {
+        "before": 2,
+        "itemsBefore": 3,
+        "rejected": [
+          {
+            "amount": "100",
+            "error": "Insufficient payment. Please enter at least ₱140.00.",
+            "sales": 2,
+            "items": 3
+          },
+          {
+            "amount": "",
+            "error": "Please enter a valid amount using up to two decimal places.",
+            "sales": 2,
+            "items": 3
+          },
+          {
+            "amount": "-1",
+            "error": "Please enter a valid amount using up to two decimal places.",
+            "sales": 2,
+            "items": 3
+          },
+          {
+            "amount": "abc",
+            "error": "Please enter a valid amount using up to two decimal places.",
+            "sales": 2,
+            "items": 3
+          }
+        ]
+      },
+      "screenshot": "test-16.png",
+      "finishedAt": "2026-10-07T12:55:59.328Z"
+    },
+    {
+      "number": 17,
+      "requirement": "Change is calculated correctly",
+      "expected": "Paid − Total is correct",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:55:59.337Z",
+      "actual": "₱200−₱140=₱60 change; a separate exact ₱140 payment stored and displayed ₱0 change.",
+      "observations": {
+        "excess": {
+          "id": 3,
+          "transaction_number": "TXN-20261007-2CB7DCBE-EE90-42F1-8DED-5D123AF2270F",
+          "request_id": "ef2a50cb-5a2f-4c05-b15a-405acf5d2df5",
+          "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+          "total_cents": 14000,
+          "payment_method": "Cash",
+          "amount_paid_cents": 20000,
+          "change_cents": 6000,
+          "status": "completed",
+          "created_at": "2026-10-07T12:55:59.971Z"
+        },
+        "exact": {
+          "id": 4,
+          "transaction_number": "TXN-20261007-AE268FE2-A59C-4550-AA0C-33ABB751AAB1",
+          "request_id": "57c73958-83f2-4dd3-95ff-66b51df41d81",
+          "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":14000}",
+          "total_cents": 14000,
+          "payment_method": "Cash",
+          "amount_paid_cents": 14000,
+          "change_cents": 0,
+          "status": "completed",
+          "created_at": "2026-10-07T12:56:00.539Z"
+        }
+      },
+      "screenshot": "test-17.png",
+      "finishedAt": "2026-10-07T12:56:00.643Z"
+    },
+    {
+      "number": 18,
+      "requirement": "QR payment can be simulated",
+      "expected": "QR flow completes",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:56:00.654Z",
+      "actual": "₱140 due, visible demo QR placeholder/instruction and confirmation; saved QR Payment ₱140 paid, ₱0 change; receipt matched.",
+      "observations": {
+        "sale": {
+          "id": 5,
+          "transaction_number": "TXN-20261007-AC1EE88D-41D0-4D00-8F04-5DC4507FD1FD",
+          "request_id": "0c1f401b-8aff-4286-b6a8-ad112cbdc7f2",
+          "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"QR Payment\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+          "total_cents": 14000,
+          "payment_method": "QR Payment",
+          "amount_paid_cents": 14000,
+          "change_cents": 0,
+          "status": "completed",
+          "created_at": "2026-10-07T12:56:01.437Z"
+        }
+      },
+      "screenshot": "test-18.png",
+      "finishedAt": "2026-10-07T12:56:01.622Z"
+    },
+    {
+      "number": 19,
+      "requirement": "Card payment can be simulated",
+      "expected": "Card flow completes",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:56:01.632Z",
+      "actual": "Tap/insert/swipe instruction, visible processing and success; saved card sale ₱140 paid, ₱0 change; receipt matched.",
+      "observations": {
+        "sale": {
+          "id": 6,
+          "transaction_number": "TXN-20261007-94430535-2FFC-4872-BDCD-144E22499972",
+          "request_id": "b2fc1ef1-c35a-41f5-bcde-4cd52a07d2e2",
+          "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Credit/Debit Card\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+          "total_cents": 14000,
+          "payment_method": "Credit/Debit Card",
+          "amount_paid_cents": 14000,
+          "change_cents": 0,
+          "status": "completed",
+          "created_at": "2026-10-07T12:56:03.180Z"
+        }
+      },
+      "screenshot": "test-19.png",
+      "finishedAt": "2026-10-07T12:56:03.813Z"
+    },
+    {
+      "number": 20,
+      "requirement": "Payment Successful screen is shown",
+      "expected": "Confirmation displayed",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:56:03.823Z",
+      "actual": "Explicit Payment Successful screen displayed total, amount paid, change, Cash, saved reference and View Receipt before receipt.",
+      "observations": {
+        "details": [
+          "Total amount\n₱140.00",
+          "Payment method\nCash",
+          "Amount paid\n₱200.00",
+          "Change\n₱60.00"
+        ],
+        "reference": "TXN-20261007-470D5446-DC3C-463F-9EE3-B9D1410C1CBF"
+      },
+      "screenshot": "test-20.png",
+      "finishedAt": "2026-10-07T12:56:04.666Z"
+    },
+    {
+      "number": 21,
+      "requirement": "A unique transaction reference is provided",
+      "expected": "Different reference per transaction",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:56:04.675Z",
+      "actual": "Two separately completed cash sales had different references; every stored reference was unique.",
+      "observations": {
+        "references": [
+          "TXN-20261007-F9B990E2-5D49-46CC-8619-7987DA8B54A3",
+          "TXN-20261007-3B32B542-E5B2-406D-8915-30781664923A"
+        ],
+        "databaseSales": 9
+      },
+      "screenshot": "test-21.png",
+      "finishedAt": "2026-10-07T12:56:05.979Z"
+    },
+    {
+      "number": 22,
+      "requirement": "View Receipt works",
+      "expected": "Receipt opens",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:56:05.987Z",
+      "actual": "View Receipt navigated from success to a visible digital receipt with the same saved reference.",
+      "observations": {
+        "reference": "TXN-20261007-C6AF62B9-D510-4137-B9CC-A50CEDFA11F2"
+      },
+      "screenshot": "test-22.png",
+      "finishedAt": "2026-10-07T12:56:06.761Z"
+    },
+    {
+      "number": 23,
+      "requirement": "Receipt contains correct transaction details",
+      "expected": "Receipt matches transaction",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:56:06.771Z",
+      "actual": "Receipt product/qty/unit/subtotal, total ₱140, paid ₱200, change ₱60, Cash, reference, date/time and successful status matched SQLite. All six screen totals matched.",
+      "observations": {
+        "crossScreen": {
+          "selection": "₱140.00",
+          "summary": "₱140.00",
+          "methods": "₱140.00",
+          "payment": "₱140.00",
+          "success": "₱140.00",
+          "receipt": "₱140.00",
+          "sqlite": "₱140.00"
+        },
+        "sale": {
+          "id": 11,
+          "transaction_number": "TXN-20261007-D3DE9311-91DE-45A5-88A5-23246360DBD1",
+          "request_id": "99a7a655-9c1f-40ee-8fa9-1b047bf85921",
+          "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+          "total_cents": 14000,
+          "payment_method": "Cash",
+          "amount_paid_cents": 20000,
+          "change_cents": 6000,
+          "status": "completed",
+          "created_at": "2026-10-07T12:56:07.419Z"
+        },
+        "items": [
+          {
+            "id": 20,
+            "transaction_id": 11,
+            "product_id": 1,
+            "product_name": "Coffee",
+            "unit_price_cents": 4500,
+            "quantity": 2,
+            "subtotal_cents": 9000
+          },
+          {
+            "id": 21,
+            "transaction_id": 11,
+            "product_id": 2,
+            "product_name": "Sandwich",
+            "unit_price_cents": 5000,
+            "quantity": 1,
+            "subtotal_cents": 5000
+          }
+        ],
+        "displayedDate": "Oct 7, 2026, 8:56 PM"
+      },
+      "screenshot": "test-23.png",
+      "finishedAt": "2026-10-07T12:56:07.632Z"
+    },
+    {
+      "number": 24,
+      "requirement": "Receipt displays correct payment method",
+      "expected": "Correct selected method shown",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:56:07.641Z",
+      "actual": "Independent Cash, QR Payment and Credit/Debit Card receipts each displayed the selected method and matching database value; no stale method.",
+      "observations": {
+        "verified": [
+          {
+            "method": "Cash",
+            "receiptMethod": "Cash",
+            "reference": "TXN-20261007-2BD4289B-8682-46E2-9B2A-CE9BF02BF9D2"
+          },
+          {
+            "method": "QR Payment",
+            "receiptMethod": "QR Payment",
+            "reference": "TXN-20261007-02D4AB58-0DD5-42A5-B2CB-620A9B40537D"
+          },
+          {
+            "method": "Credit/Debit Card",
+            "receiptMethod": "Credit/Debit Card",
+            "reference": "TXN-20261007-C66518CF-5617-4A09-9BB5-0B13D2BD7CC0"
+          }
+        ]
+      },
+      "screenshot": "test-24.png",
+      "finishedAt": "2026-10-07T12:56:10.949Z"
+    },
+    {
+      "number": 25,
+      "requirement": "New Transaction resets the application",
+      "expected": "Active transaction fully reset",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:56:10.958Z",
+      "actual": "New Transaction cleared prior cart/qty/total/payment/reference/receipt/error; next cash input blank with no old change; all completed database rows preserved.",
+      "observations": {
+        "savedReference": "TXN-20261007-645DF7D5-9B71-4F62-AB8A-5F6EA4F49EA3",
+        "historyBefore": 15,
+        "historyAfter": 15
+      },
+      "screenshot": "test-25.png",
+      "finishedAt": "2026-10-07T12:56:12.154Z"
+    },
+    {
+      "number": 26,
+      "requirement": "Meaningful user feedback is provided",
+      "expected": "Clear success/error feedback",
+      "status": "PASS",
+      "startedAt": "2026-10-07T12:56:12.162Z",
+      "actual": "Visible, relevant empty-cart, added, removed, invalid, insufficient, processing, success and completed feedback verified through the UI.",
+      "observations": {
+        "messages": {
+          "empty": "✦\nGood things go in here.\n\nYour order is empty. Tap a product to add it here.",
+          "added": "Soft Drink added.",
+          "removed": "Soft Drink removed.",
+          "invalid": "Please enter a valid amount using up to two decimal places.",
+          "insufficient": "Insufficient payment. Please enter at least ₱140.00.",
+          "processing": "Processing payment…",
+          "success": "Payment successful. Transaction saved.",
+          "completed": "✓ Payment Successful\n\nTransaction completed successfully. See you again!\n\nSimulated payment · No money collected"
+        }
+      },
+      "screenshot": "test-26.png",
+      "finishedAt": "2026-10-07T12:56:14.512Z"
+    }
+  ],
+  "regression": [
+    {
+      "name": "Stored line totals, relationships, change, timestamp, status and references",
+      "status": "PASS",
+      "transactions": 16,
+      "itemRows": 31
+    },
+    {
+      "name": "Actual CLI server stop/restart preserves complete transaction rows and six seeds",
+      "status": "PASS"
+    },
+    {
+      "name": "Five responsive viewports and measured touch targets",
+      "status": "PASS"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "serverLog": "(node:27716) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nCampus Store POS ready at http://localhost:55322\n(node:5644) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nCampus Store POS ready at http://localhost:58345\n",
+  "payments": [
+    {
+      "id": 2,
+      "transaction_number": "TXN-20261007-2489D1B5-E0AC-442B-A6F0-952F096C4CEA",
+      "request_id": "1d342b48-1dba-4c42-abe1-5bf26c8d3fb1",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:55:58.356Z"
+    },
+    {
+      "id": 3,
+      "transaction_number": "TXN-20261007-2CB7DCBE-EE90-42F1-8DED-5D123AF2270F",
+      "request_id": "ef2a50cb-5a2f-4c05-b15a-405acf5d2df5",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:55:59.971Z"
+    },
+    {
+      "id": 4,
+      "transaction_number": "TXN-20261007-AE268FE2-A59C-4550-AA0C-33ABB751AAB1",
+      "request_id": "57c73958-83f2-4dd3-95ff-66b51df41d81",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":14000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 14000,
+      "change_cents": 0,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:00.539Z"
+    },
+    {
+      "id": 7,
+      "transaction_number": "TXN-20261007-470D5446-DC3C-463F-9EE3-B9D1410C1CBF",
+      "request_id": "ac014e86-5b27-407f-9e07-0a142cc9826b",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:04.521Z"
+    },
+    {
+      "id": 8,
+      "transaction_number": "TXN-20261007-F9B990E2-5D49-46CC-8619-7987DA8B54A3",
+      "request_id": "33677b72-749b-4f55-a2da-1431c50daf60",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:05.287Z"
+    },
+    {
+      "id": 9,
+      "transaction_number": "TXN-20261007-3B32B542-E5B2-406D-8915-30781664923A",
+      "request_id": "779d1507-c76f-482f-9bfb-f8b00773463d",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:05.752Z"
+    },
+    {
+      "id": 10,
+      "transaction_number": "TXN-20261007-C6AF62B9-D510-4137-B9CC-A50CEDFA11F2",
+      "request_id": "303ec345-79f4-4d3c-a4e3-c3103a8af577",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:06.585Z"
+    },
+    {
+      "id": 11,
+      "transaction_number": "TXN-20261007-D3DE9311-91DE-45A5-88A5-23246360DBD1",
+      "request_id": "99a7a655-9c1f-40ee-8fa9-1b047bf85921",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:07.419Z"
+    },
+    {
+      "id": 12,
+      "transaction_number": "TXN-20261007-2BD4289B-8682-46E2-9B2A-CE9BF02BF9D2",
+      "request_id": "5c8fefbe-9eb9-4d54-aec5-bd8f0f3aa95a",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:08.285Z"
+    },
+    {
+      "id": 15,
+      "transaction_number": "TXN-20261007-645DF7D5-9B71-4F62-AB8A-5F6EA4F49EA3",
+      "request_id": "67d0ef40-a63a-48b6-a967-9ade7c6d39dd",
+      "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+      "total_cents": 14000,
+      "payment_method": "Cash",
+      "amount_paid_cents": 20000,
+      "change_cents": 6000,
+      "status": "completed",
+      "created_at": "2026-10-07T12:56:11.599Z"
+    }
+  ],
+  "status": "PASS",
+  "startCommand": "node server/server.js (same entrypoint as npm start), PORT=0, isolated POS_DB_PATH",
+  "testUrl": "http://localhost:58345",
+  "browserVersion": "154.0.4258.62",
+  "database": {
+    "products": [
+      {
+        "id": 1,
+        "name": "Coffee",
+        "price_cents": 4500
+      },
+      {
+        "id": 2,
+        "name": "Sandwich",
+        "price_cents": 5000
+      },
+      {
+        "id": 3,
+        "name": "Soft Drink",
+        "price_cents": 3500
+      },
+      {
+        "id": 4,
+        "name": "Cookies",
+        "price_cents": 2500
+      },
+      {
+        "id": 5,
+        "name": "Bottled Water",
+        "price_cents": 2000
+      },
+      {
+        "id": 6,
+        "name": "Chocolate",
+        "price_cents": 2500
+      }
+    ],
+    "transactions": [
+      {
+        "id": 1,
+        "transaction_number": "TXN-20261007-F56AD570-8F83-4954-8396-DA06198F2B40",
+        "request_id": "47f8cfd9-7d32-4e57-93cf-23a24ce5c0df",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":9000,\"amountPaidCents\":9000}",
+        "total_cents": 9000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 9000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:55:48.339Z"
+      },
+      {
+        "id": 2,
+        "transaction_number": "TXN-20261007-2489D1B5-E0AC-442B-A6F0-952F096C4CEA",
+        "request_id": "1d342b48-1dba-4c42-abe1-5bf26c8d3fb1",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:55:58.356Z"
+      },
+      {
+        "id": 3,
+        "transaction_number": "TXN-20261007-2CB7DCBE-EE90-42F1-8DED-5D123AF2270F",
+        "request_id": "ef2a50cb-5a2f-4c05-b15a-405acf5d2df5",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:55:59.971Z"
+      },
+      {
+        "id": 4,
+        "transaction_number": "TXN-20261007-AE268FE2-A59C-4550-AA0C-33ABB751AAB1",
+        "request_id": "57c73958-83f2-4dd3-95ff-66b51df41d81",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":14000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 14000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:00.539Z"
+      },
+      {
+        "id": 5,
+        "transaction_number": "TXN-20261007-AC1EE88D-41D0-4D00-8F04-5DC4507FD1FD",
+        "request_id": "0c1f401b-8aff-4286-b6a8-ad112cbdc7f2",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"QR Payment\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+        "total_cents": 14000,
+        "payment_method": "QR Payment",
+        "amount_paid_cents": 14000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:01.437Z"
+      },
+      {
+        "id": 6,
+        "transaction_number": "TXN-20261007-94430535-2FFC-4872-BDCD-144E22499972",
+        "request_id": "b2fc1ef1-c35a-41f5-bcde-4cd52a07d2e2",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Credit/Debit Card\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+        "total_cents": 14000,
+        "payment_method": "Credit/Debit Card",
+        "amount_paid_cents": 14000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:03.180Z"
+      },
+      {
+        "id": 7,
+        "transaction_number": "TXN-20261007-470D5446-DC3C-463F-9EE3-B9D1410C1CBF",
+        "request_id": "ac014e86-5b27-407f-9e07-0a142cc9826b",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:04.521Z"
+      },
+      {
+        "id": 8,
+        "transaction_number": "TXN-20261007-F9B990E2-5D49-46CC-8619-7987DA8B54A3",
+        "request_id": "33677b72-749b-4f55-a2da-1431c50daf60",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:05.287Z"
+      },
+      {
+        "id": 9,
+        "transaction_number": "TXN-20261007-3B32B542-E5B2-406D-8915-30781664923A",
+        "request_id": "779d1507-c76f-482f-9bfb-f8b00773463d",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:05.752Z"
+      },
+      {
+        "id": 10,
+        "transaction_number": "TXN-20261007-C6AF62B9-D510-4137-B9CC-A50CEDFA11F2",
+        "request_id": "303ec345-79f4-4d3c-a4e3-c3103a8af577",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:06.585Z"
+      },
+      {
+        "id": 11,
+        "transaction_number": "TXN-20261007-D3DE9311-91DE-45A5-88A5-23246360DBD1",
+        "request_id": "99a7a655-9c1f-40ee-8fa9-1b047bf85921",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:07.419Z"
+      },
+      {
+        "id": 12,
+        "transaction_number": "TXN-20261007-2BD4289B-8682-46E2-9B2A-CE9BF02BF9D2",
+        "request_id": "5c8fefbe-9eb9-4d54-aec5-bd8f0f3aa95a",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:08.285Z"
+      },
+      {
+        "id": 13,
+        "transaction_number": "TXN-20261007-02D4AB58-0DD5-42A5-B2CB-620A9B40537D",
+        "request_id": "778f1815-9e1d-488a-943c-ff7be4ac61e9",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"QR Payment\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+        "total_cents": 14000,
+        "payment_method": "QR Payment",
+        "amount_paid_cents": 14000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:08.835Z"
+      },
+      {
+        "id": 14,
+        "transaction_number": "TXN-20261007-C66518CF-5617-4A09-9BB5-0B13D2BD7CC0",
+        "request_id": "ee789da2-0d0f-4635-8052-9f939d9a2270",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Credit/Debit Card\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+        "total_cents": 14000,
+        "payment_method": "Credit/Debit Card",
+        "amount_paid_cents": 14000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:10.294Z"
+      },
+      {
+        "id": 15,
+        "transaction_number": "TXN-20261007-645DF7D5-9B71-4F62-AB8A-5F6EA4F49EA3",
+        "request_id": "67d0ef40-a63a-48b6-a967-9ade7c6d39dd",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Cash\",\"expectedTotalCents\":14000,\"amountPaidCents\":20000}",
+        "total_cents": 14000,
+        "payment_method": "Cash",
+        "amount_paid_cents": 20000,
+        "change_cents": 6000,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:11.599Z"
+      },
+      {
+        "id": 16,
+        "transaction_number": "TXN-20261007-F64BBFDB-4E39-4C48-9FEC-CA76063C5FA3",
+        "request_id": "cbe48e0a-5f2e-4bc6-8cb4-f3701ff78fb5",
+        "request_fingerprint": "{\"items\":[{\"productId\":1,\"quantity\":2},{\"productId\":2,\"quantity\":1}],\"paymentMethod\":\"Credit/Debit Card\",\"expectedTotalCents\":14000,\"amountPaidCents\":null}",
+        "total_cents": 14000,
+        "payment_method": "Credit/Debit Card",
+        "amount_paid_cents": 14000,
+        "change_cents": 0,
+        "status": "completed",
+        "created_at": "2026-10-07T12:56:13.946Z"
+      }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "transaction_id": 1,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 2,
+        "transaction_id": 2,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 3,
+        "transaction_id": 2,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 4,
+        "transaction_id": 3,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 5,
+        "transaction_id": 3,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 6,
+        "transaction_id": 4,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 7,
+        "transaction_id": 4,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 8,
+        "transaction_id": 5,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 9,
+        "transaction_id": 5,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 10,
+        "transaction_id": 6,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 11,
+        "transaction_id": 6,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 12,
+        "transaction_id": 7,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 13,
+        "transaction_id": 7,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 14,
+        "transaction_id": 8,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 15,
+        "transaction_id": 8,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 16,
+        "transaction_id": 9,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 17,
+        "transaction_id": 9,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 18,
+        "transaction_id": 10,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 19,
+        "transaction_id": 10,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 20,
+        "transaction_id": 11,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 21,
+        "transaction_id": 11,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 22,
+        "transaction_id": 12,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 23,
+        "transaction_id": 12,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 24,
+        "transaction_id": 13,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 25,
+        "transaction_id": 13,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 26,
+        "transaction_id": 14,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 27,
+        "transaction_id": 14,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 28,
+        "transaction_id": 15,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 29,
+        "transaction_id": 15,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      },
+      {
+        "id": 30,
+        "transaction_id": 16,
+        "product_id": 1,
+        "product_name": "Coffee",
+        "unit_price_cents": 4500,
+        "quantity": 2,
+        "subtotal_cents": 9000
+      },
+      {
+        "id": 31,
+        "transaction_id": 16,
+        "product_id": 2,
+        "product_name": "Sandwich",
+        "unit_price_cents": 5000,
+        "quantity": 1,
+        "subtotal_cents": 5000
+      }
+    ],
+    "integrity": "ok",
+    "foreignKeyViolations": 0
+  },
+  "summary": {
+    "total": 26,
+    "passed": 26,
+    "failed": 0,
+    "notVerified": 0,
+    "blocked": 0,
+    "passRate": 100
+  },
+  "finishedAt": "2026-10-07T12:56:15.667Z"
+}

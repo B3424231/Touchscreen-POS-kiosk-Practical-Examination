@@ -1,0 +1,15 @@
+{
+  "evidenceDir": "D:\\TOUCH_KIOSK_UI\\Touchscreen-POS-kiosk-Practical-Examination\\test-results\\design-2026-10-07T12-24-30-849Z",
+  "checks": [
+    "320px catalog fits",
+    "Long toast wraps, renders text safely, and dismisses",
+    "320px maximum quantity cart fits",
+    "320px maximum quantity summary fits",
+    "320px large total payment methods fit",
+    "320px maximum cash amount and quick amounts fit",
+    "320px large amount confirmation fits",
+    "320px maximum quantity receipt fits"
+  ],
+  "errors": [],
+  "status": "PASS"
+}
