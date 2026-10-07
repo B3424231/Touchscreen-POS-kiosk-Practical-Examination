@@ -14,6 +14,8 @@ Open **http://localhost:3000**. No `npm install` or frontend build is needed. SQ
 
 The database is created and seeded automatically at `database/pos.db`. The server listens on the local computer only. Stop it with Ctrl+C. Restarting preserves completed transactions. Reloading the browser clears an unfinished order; a new transaction clears the active customer's data. QR and card never collect real money or card data.
 
+The cash screen has an on-screen keypad alongside the existing quick amounts and keyboard input. After three minutes of inactivity during an order or receipt, a 20-second warning lets the customer continue before the session clears. The timer pauses while a payment is processing or its result is uncertain. The receipt has a **Print / Save PDF** button that uses the browser's print dialog and a receipt-only print layout.
+
 To use a different port or a separate practice database:
 
 ```powershell

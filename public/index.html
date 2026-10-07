@@ -35,6 +35,15 @@
       </div>
     </form>
   </dialog>
+  <dialog id="idle-warning" class="confirmation-dialog idle-dialog" aria-labelledby="idle-title" aria-describedby="idle-description">
+    <p class="eyebrow">A quick check-in</p>
+    <h2 id="idle-title">Still there?</h2>
+    <p id="idle-description">For your privacy, this session will clear in <strong id="idle-countdown">20</strong> seconds.</p>
+    <div class="confirmation-actions">
+      <button type="button" class="secondary" id="idle-start-over">Start over</button>
+      <button type="button" class="primary" id="idle-continue" autofocus>Continue</button>
+    </div>
+  </dialog>
   <footer class="site-footer"><span><span class="footer-spark" aria-hidden="true">✳</span> A little pick-me-up, right on campus.</span><span>IT415 · Payment simulation</span></footer>
   <noscript>This kiosk needs JavaScript enabled to select products and make simulated payments.</noscript>
 </body>
