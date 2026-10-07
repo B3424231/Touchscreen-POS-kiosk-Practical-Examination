@@ -18,6 +18,8 @@ Selecting a catalog product now opens a confirmation dialog showing its name, on
 
 Cash keeps amount validation, quick amounts, change preview, and insufficient payment errors. QR and card remain explicit simulations. Processing and uncertain payment states prevent conflicting submissions, and retries retain the existing duplicate protection.
 
+The cash screen also has a 12-key touch keypad with decimal, delete, and clear controls. It updates the same cash field and change preview as keyboard entry. Active orders and receipts show a warning after three minutes without interaction and clear after a further 20 seconds; Continue keeps the session. Payment processing, uncertain payment responses, and the browser print dialog suspend the idle reset. The receipt offers Print / Save PDF with a receipt-only print layout.
+
 The confirmation and receipt use the committed transaction snapshot. The receipt includes the transaction reference, Philippine date and time, items, quantities, unit prices, subtotals, total, payment method, amount paid, and change. New Transaction clears the current order and preserves completed history.
 
 ## Responsive and accessibility requirements

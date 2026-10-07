@@ -24,9 +24,19 @@ const toastContainer = document.querySelector('#toast-container');
 let activeToast = null;
 let toastDismissTimer = null;
 const confirmation = document.querySelector('#add-confirmation');
+const idleWarning = document.querySelector('#idle-warning');
+const idleCountdown = document.querySelector('#idle-countdown');
+const IDLE_AFTER_MS = 3 * 60 * 1000;
+const IDLE_WARNING_MS = 20 * 1000;
 let pendingProductId = null;
 let confirmationTrigger = null;
 let currentProgressStep = -1;
+let idleTimer = null;
+let idleCountdownTimer = null;
+let idleDeadline = 0;
+let lastIdleActivity = 0;
+let printInProgress = false;
+let replaceAmountOnKeypad = false;
 
 export function showToast(message) {
   if (!toastContainer) return;
@@ -76,6 +86,50 @@ function navigate(screen) {
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
+function armIdleTimer() {
+  if (idleWarning.open) return;
+  clearTimeout(idleTimer);
+  if (printInProgress || state.processing || state.uncertain || (!state.cart.length && !state.transaction && pendingProductId === null)) return;
+  idleTimer = setTimeout(showIdleWarning, IDLE_AFTER_MS);
+}
+
+function closeIdleWarning() {
+  clearInterval(idleCountdownTimer);
+  idleCountdownTimer = null;
+  if (idleWarning.open) idleWarning.close();
+  document.documentElement.classList.remove('idle-open');
+}
+
+function showIdleWarning() {
+  idleTimer = null;
+  if (printInProgress || state.processing || state.uncertain || (!state.cart.length && !state.transaction && pendingProductId === null)) return;
+  if (confirmation.open) finishAddition(false);
+  idleDeadline = Date.now() + IDLE_WARNING_MS;
+  idleCountdown.textContent = String(IDLE_WARNING_MS / 1000);
+  document.documentElement.classList.add('idle-open');
+  idleWarning.showModal();
+  idleCountdownTimer = setInterval(() => {
+    const seconds = Math.max(0, Math.ceil((idleDeadline - Date.now()) / 1000));
+    idleCountdown.textContent = String(seconds);
+    if (seconds === 0) resetSession('Session cleared after inactivity.', 'Session cleared after inactivity');
+  }, 1000);
+}
+
+function resetSession(feedbackMessage, toastMessage) {
+  closeIdleWarning();
+  if (confirmation.open) finishAddition(false);
+  clearTimeout(idleTimer);
+  clearTimeout(feedbackTimer);
+  clearTimeout(toastDismissTimer);
+  feedback.textContent = '';
+  if (activeToast) { activeToast.remove(); activeToast = null; }
+  replaceAmountOnKeypad = false;
+  Object.assign(state, { cart: [], screen: 'selection', method: null, paid: '', error: '', processing: false, transaction: null, requestId: null, uncertain: false });
+  navigate('selection');
+  notify(feedbackMessage);
+  showToast(toastMessage);
+}
+
 function drawProgress() {
   const steps = ['Choose items', 'Review order', 'Payment', 'Receipt'];
   const current = { selection: 0, summary: 1, methods: 2, cash: 2, qr: 2, card: 2, success: 2, receipt: 3 }[state.screen];
@@ -113,6 +167,11 @@ function methods() {
   return `<section class="center-page">${backButton('summary', 'Back to order')}<div class="center-intro"><span class="section-stamp" aria-hidden="true">✳</span><p class="eyebrow">Your order is ready</p><h1 tabindex="-1">How would you like to pay?</h1><p>Choose a payment method to continue.</p></div>${due()}<div class="payment-methods">${options.map(([method, image, description], index) => `<button class="payment-option payment-${image}" data-action="choose-payment" data-method="${method}" aria-label="${method}"><span class="payment-option-top" aria-hidden="true"><span>0${index + 1}</span><span>↗</span></span><span class="payment-icon">${icon(image)}</span><strong>${method}</strong><small>${description}</small></button>`).join('')}</div><p class="simulation-note">Practice kiosk: all payments are simulated. No money is collected.</p></section>`;
 }
 
+function cashKeypad(disabled) {
+  const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0', 'backspace'];
+  return `<div class="keypad-heading"><span>Touch keypad</span><button type="button" data-action="keypad" data-key="clear" ${disabled}>Clear</button></div><div class="cash-keypad" role="group" aria-label="Cash amount keypad">${keys.map(key => `<button type="button" data-action="keypad" data-key="${key}" aria-label="${key === 'backspace' ? 'Delete last digit' : key === '.' ? 'Decimal point' : `Digit ${key}`}" ${disabled}>${key === 'backspace' ? '⌫' : key}</button>`).join('')}</div>`;
+}
+
 function payment() {
   const type = state.screen;
   const disabled = state.processing || state.uncertain ? 'disabled' : '';
@@ -120,7 +179,7 @@ function payment() {
   let controls;
   if (type === 'cash') {
     const suggestions = [...new Set([total(), Math.ceil(total() / 10000) * 10000, Math.ceil(total() / 50000) * 50000])];
-    controls = `<form id="cash-form" novalidate><label for="amount-paid">Amount Paid</label><div class="amount-input"><span aria-hidden="true">₱</span><input id="amount-paid" name="amountPaid" type="text" inputmode="decimal" autocomplete="off" maxlength="12" placeholder="0.00" value="${escape(state.paid)}" aria-describedby="cash-hint payment-error" aria-invalid="${Boolean(state.error)}" ${disabled}></div><p id="cash-hint" class="input-hint">Enter the cash amount, or choose a quick amount.</p><div class="quick-amounts">${suggestions.map((amount, index) => `<button type="button" data-action="quick-amount" data-amount="${amount}" ${disabled}>${index === 0 ? 'Exact · ' : ''}${money(amount)}</button>`).join('')}</div><div class="change-preview"><span>Change</span><strong id="change-preview">${changePreview()}</strong></div>${errorBlock()}<button type="submit" class="primary full-width" ${state.processing ? 'disabled' : ''}>${payLabel('Pay Now')}</button></form>`;
+    controls = `<form id="cash-form" novalidate><label for="amount-paid">Amount Paid</label><div class="amount-input"><span aria-hidden="true">₱</span><input id="amount-paid" name="amountPaid" type="text" inputmode="decimal" autocomplete="off" maxlength="12" placeholder="0.00" value="${escape(state.paid)}" aria-describedby="cash-hint payment-error" aria-invalid="${Boolean(state.error)}" ${disabled}></div><p id="cash-hint" class="input-hint">Enter the cash amount with the touch keypad, choose a quick amount, or type it.</p><div class="quick-amounts">${suggestions.map((amount, index) => `<button type="button" data-action="quick-amount" data-amount="${amount}" ${disabled}>${index === 0 ? 'Exact · ' : ''}${money(amount)}</button>`).join('')}</div>${cashKeypad(disabled)}<div class="change-preview"><span>Change</span><strong id="change-preview">${changePreview()}</strong></div>${errorBlock()}<button type="submit" class="primary full-width" ${state.processing ? 'disabled' : ''}>${payLabel('Pay Now')}</button></form>`;
   } else if (type === 'qr') {
     controls = `<div class="qr-placeholder">${icon('qr')}<strong>DEMO QR PLACEHOLDER</strong><small>No real payment link</small></div><p class="payment-instruction">Scan the QR code using your supported payment application.</p><p class="simulation-note">This placeholder is for demonstration. Select Confirm Payment to simulate payment.</p>${errorBlock()}<button class="primary full-width" data-action="pay" ${state.processing ? 'disabled' : ''}>${payLabel('Confirm Payment')}</button>`;
   } else {
@@ -135,6 +194,44 @@ function changePreview() {
   try { const paid = parseAmount(state.paid); return paid >= total() ? money(paid - total()) : '—'; } catch { return '—'; }
 }
 
+function updateCashFeedback() {
+  state.error = '';
+  const input = document.querySelector('#amount-paid');
+  input?.setAttribute('aria-invalid', 'false');
+  const error = document.querySelector('#payment-error');
+  if (error) error.textContent = '';
+  const preview = document.querySelector('#change-preview');
+  if (preview) preview.textContent = changePreview();
+}
+
+function setCashAmount(value) {
+  state.paid = value;
+  const input = document.querySelector('#amount-paid');
+  if (input) input.value = value;
+  updateCashFeedback();
+}
+
+function useCashKey(key) {
+  if (state.screen !== 'cash' || state.processing || state.uncertain) return;
+  const current = state.paid;
+  let next;
+  if (key === 'clear') next = '';
+  else if (key === 'backspace') next = current.slice(0, -1);
+  else if (key === '.') {
+    if (!replaceAmountOnKeypad && current.includes('.')) return;
+    next = replaceAmountOnKeypad || !current ? '0.' : `${current}.`;
+  } else if (/^\d$/.test(key)) {
+    if (replaceAmountOnKeypad || current === '0') next = key;
+    else {
+      if (/\.\d{2}$/.test(current)) return;
+      next = `${current}${key}`;
+    }
+  } else return;
+  if (next.length > 12) return;
+  replaceAmountOnKeypad = false;
+  setCashAmount(next);
+}
+
 function details(sale) {
   return `<div class="detail-row large"><span>Total amount</span><strong>${money(sale.totalCents)}</strong></div><div class="detail-row"><span>Payment method</span><strong>${escape(sale.paymentMethod)}</strong></div><div class="detail-row"><span>Amount paid</span><strong>${money(sale.amountPaidCents)}</strong></div><div class="detail-row"><span>Change</span><strong>${money(sale.changeCents)}</strong></div>`;
 }
@@ -147,7 +244,7 @@ function success() {
 function receipt() {
   const sale = state.transaction;
   const date = new Intl.DateTimeFormat('en-PH', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Manila' }).format(new Date(sale.createdAt));
-  return `<section class="receipt-page"><div class="center-intro"><p class="eyebrow">Thanks for stopping by</p><h1 tabindex="-1">Your digital receipt</h1><p>A little something for your campus day.</p></div><article class="receipt" aria-label="Digital receipt"><header class="receipt-header"><h2>Campus Store POS</h2><p>IT415 · Touchscreen self-service kiosk</p></header><div class="receipt-meta"><div><span>Transaction number</span><strong class="reference">${escape(sale.transactionNumber)}</strong></div><div><span>Date &amp; time (Philippine time)</span><strong>${escape(date)}</strong></div></div>${orderTable(sale.items, true)}<div class="order-total"><span>Total</span><strong>${money(sale.totalCents)}</strong></div><div class="detail-row"><span>Payment method</span><strong>${escape(sale.paymentMethod)}</strong></div><div class="detail-row"><span>Amount paid</span><strong>${money(sale.amountPaidCents)}</strong></div><div class="detail-row"><span>Change</span><strong>${money(sale.changeCents)}</strong></div><div class="receipt-status"><strong>✓ Payment Successful</strong><p>Transaction completed successfully. See you again!</p><p>Simulated payment · No money collected</p></div></article><button class="primary" data-action="new">New Transaction <span aria-hidden="true">→</span></button></section>`;
+  return `<section class="receipt-page"><div class="center-intro"><p class="eyebrow">Thanks for stopping by</p><h1 tabindex="-1">Your digital receipt</h1><p>A little something for your campus day.</p></div><article class="receipt" aria-label="Digital receipt"><header class="receipt-header"><h2>Campus Store POS</h2><p>IT415 · Touchscreen self-service kiosk</p></header><div class="receipt-meta"><div><span>Transaction number</span><strong class="reference">${escape(sale.transactionNumber)}</strong></div><div><span>Date &amp; time (Philippine time)</span><strong>${escape(date)}</strong></div></div>${orderTable(sale.items, true)}<div class="order-total"><span>Total</span><strong>${money(sale.totalCents)}</strong></div><div class="detail-row"><span>Payment method</span><strong>${escape(sale.paymentMethod)}</strong></div><div class="detail-row"><span>Amount paid</span><strong>${money(sale.amountPaidCents)}</strong></div><div class="detail-row"><span>Change</span><strong>${money(sale.changeCents)}</strong></div><div class="receipt-status"><strong>✓ Payment Successful</strong><p>Transaction completed successfully. See you again!</p><p>Simulated payment · No money collected</p></div></article><div class="receipt-actions"><button class="secondary" data-action="print-receipt">Print / Save PDF</button><button class="primary" data-action="new">New Transaction <span aria-hidden="true">→</span></button></div></section>`;
 }
 
 function render() {
@@ -156,6 +253,7 @@ function render() {
   app.setAttribute('aria-busy', String(state.processing));
   app.innerHTML = ({ selection, summary, methods, cash: payment, qr: payment, card: payment, success, receipt })[state.screen]();
   if (focused) app.querySelector(`[data-focus="${focused}"]`)?.focus({ preventScroll: true });
+  armIdleTimer();
 }
 
 function updateCart(id) {
@@ -224,6 +322,7 @@ function requestAddition(id, trigger) {
   document.querySelector('#confirmation-image').setAttribute('href', `/images/products.svg#${illustrations[id] || 'bag'}`);
   document.documentElement.classList.add('confirmation-open');
   confirmation.showModal();
+  armIdleTimer();
 }
 
 function finishAddition(confirmed) {
@@ -333,7 +432,7 @@ async function pay() {
 app.addEventListener('click', event => {
   const button = event.target.closest('button[data-action]');
   if (!button || button.disabled || state.processing) return;
-  const { action, id, method, amount } = button.dataset;
+  const { action, id, method, amount, key } = button.dataset;
   if (action === 'add') requestAddition(Number(id), button);
   else if (action === 'increase') changeQuantity(Number(id), 1);
   else if (action === 'decrease') changeQuantity(Number(id), -1);
@@ -355,18 +454,14 @@ app.addEventListener('click', event => {
     state.method = method; state.paid = ''; state.requestId = null; state.uncertain = false;
     navigate({ Cash: 'cash', 'QR Payment': 'qr', 'Credit/Debit Card': 'card' }[method]);
   } else if (action === 'quick-amount') {
-    state.paid = (Number(amount) / 100).toFixed(2); state.error = '';
-    render(); document.querySelector('#amount-paid')?.focus();
+    replaceAmountOnKeypad = true;
+    setCashAmount((Number(amount) / 100).toFixed(2));
+  } else if (action === 'keypad') {
+    useCashKey(key);
   } else if (action === 'pay') pay();
   else if (action === 'receipt') navigate('receipt');
-  else if (action === 'new') {
-    Object.assign(state, { cart: [], screen: 'selection', method: null, paid: '', error: '', processing: false, transaction: null, requestId: null, uncertain: false });
-    clearTimeout(feedbackTimer); feedback.textContent = '';
-    if (activeToast) { activeToast.remove(); activeToast = null; }
-    navigate('selection');
-    notify('Ready for a new transaction.');
-    showToast('Ready for a new transaction');
-  }
+  else if (action === 'print-receipt' && state.screen === 'receipt' && state.transaction) window.print();
+  else if (action === 'new') resetSession('Ready for a new transaction.', 'Ready for a new transaction');
 });
 
 app.addEventListener('submit', event => {
@@ -376,10 +471,36 @@ app.addEventListener('submit', event => {
 app.addEventListener('input', event => {
   if (event.target.id !== 'amount-paid') return;
   state.paid = event.target.value;
-  state.error = '';
-  event.target.setAttribute('aria-invalid', 'false');
-  document.querySelector('#payment-error').textContent = '';
-  document.querySelector('#change-preview').textContent = changePreview();
+  replaceAmountOnKeypad = false;
+  updateCashFeedback();
+});
+
+document.querySelector('#idle-continue').addEventListener('click', () => {
+  closeIdleWarning();
+  armIdleTimer();
+  app.querySelector('h1')?.focus({ preventScroll: true });
+});
+document.querySelector('#idle-start-over').addEventListener('click', () => resetSession('Session cleared.', 'Ready for a new transaction'));
+idleWarning.addEventListener('cancel', event => {
+  event.preventDefault();
+  closeIdleWarning();
+  armIdleTimer();
+});
+for (const eventName of ['pointerdown', 'keydown', 'wheel']) {
+  document.addEventListener(eventName, () => {
+    const now = Date.now();
+    if (now - lastIdleActivity < 1000) return;
+    lastIdleActivity = now;
+    armIdleTimer();
+  }, { passive: true });
+}
+window.addEventListener('beforeprint', () => {
+  printInProgress = true;
+  clearTimeout(idleTimer);
+});
+window.addEventListener('afterprint', () => {
+  printInProgress = false;
+  armIdleTimer();
 });
 
 async function load() {

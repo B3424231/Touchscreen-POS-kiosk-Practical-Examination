@@ -15,7 +15,7 @@ description: Treat the supplied UI specification as the source of truth and impl
 6. Never claim a test passed unless it was actually run and observed.
 7. If a required tool, server, credential, dependency, or environment is unavailable, mark the result as BLOCKED and explain the exact blocker.
 8. After meaningful changes, run the narrowest relevant checks first, then broader regression checks.
-9. Keep changes compatible with the project's existing architecture unless the requested work explicitly requires an architectural change.
+9. Keep changes compatible with the project's existing architecture unless the requested work explicitly requires an architectural change.  
 10. Report concrete file paths and observable outcomes when summarizing work.
 
 ## UI specification rules
