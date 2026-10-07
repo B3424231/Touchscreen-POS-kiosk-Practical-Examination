@@ -6,10 +6,6 @@ const dbPath = process.env.POS_DB_PATH || resolve(tmpdir(), 'pos.db');
 const { handler } = createApp({ databasePath: dbPath });
 
 export default async function (req, res) {
-  const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-  const match = req.headers['x-matched-path'] || url.pathname;
-  if (match && match.startsWith('/api/')) {
-    req.url = match;
-  }
+  req.url = '/api/health';
   return handler(req, res);
 }
